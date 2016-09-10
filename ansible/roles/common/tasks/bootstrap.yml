@@ -1,0 +1,49 @@
+---
+
+- name: Update the Yum definitions
+  tags:
+    - bootstrap
+  get_url:
+    url: https://raw.githubusercontent.com/skyzyx/centos7-repos/master/all.repo
+    dest: /etc/yum.repos.d/all.repo
+    force: yes
+
+- name: Install core packages
+  tags:
+    - bootstrap
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - autoconf
+    - automake
+    - binutils
+    - bison
+    - cyrus-sasl-plain
+    - docker-engine
+    - flex
+    - gcc
+    - gcc-c++
+    - gettext
+    - glibc
+    - glibc-devel
+    - glibc-headers
+    - gnupg2
+    - htop
+    - libstdc++
+    - libstdc++-devel
+    - libtool
+    - libyaml
+    - lxc
+    - make
+    - multitail
+    - nodejs
+    - patch
+    - pkgconfig
+    - redhat-rpm-config
+    - rpm-build
+    - rpm-sign
+    - ruby-devel
+    - unzip
+    - wget

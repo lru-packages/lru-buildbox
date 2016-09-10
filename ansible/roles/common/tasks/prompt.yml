@@ -1,0 +1,23 @@
+---
+
+- name: Download git-prompt files
+  tags:
+    - prompt
+  get_url:
+    url: "https://raw.githubusercontent.com/skyzyx/git-prompt/master/{{ item }}"
+    dest: "/etc/profile.d/{{ item }}"
+  with_items:
+    - colors.sh
+    - prompt.sh
+
+- name: Ensure files are actually sourced
+  tags:
+    - prompt
+  lineinfile:
+    dest: /etc/bashrc
+    line: "source /etc/profile.d/{{ item }}"
+    state: present
+    create: yes
+  with_items:
+    - colors.sh
+    - prompt.sh

@@ -1,0 +1,12 @@
+---
+
+- include: system-debug.yml
+- include: bootstrap.yml
+- include: python.yml
+- include: gems.yml
+- include: profile-d.yml
+- include: basic-config.yml
+- include: git.yml
+- include: prompt.yml
+- include: firewalld.yml
+- include: system-info.yml

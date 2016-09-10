@@ -1,0 +1,65 @@
+---
+
+- name: Set facts
+  tags:
+    - bash
+  set_fact:
+    profile_d:
+      - aliases.sh
+      - completes.sh
+      - path.sh
+      - prompt-settings.sh
+      - shopt.sh
+      - termcap.sh
+
+- name: Set permissions and ownership for profile.d
+  tags:
+    - bash
+  file:
+    path: /etc/profile.d/
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
+    mode: "0755"
+
+- name: Copy settings to profile.d
+  tags:
+    - bash
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/profile.d/{{ item }}"
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
+    mode: "0755"
+  with_items: "{{ profile_d }}"
+
+- name: Ensure files are actually sourced
+  tags:
+    - bash
+  lineinfile:
+    dest: /etc/bashrc
+    line: "source /etc/profile.d/{{ item }}"
+    state: present
+    create: yes
+  with_items: "{{ profile_d }}"
+
+- name: Remove old bashrc files.
+  tags:
+    - bash
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/home/{{ deploy_user }}/.bashrc"
+    - "/root/.bashrc"
+
+- name: Ensure files are actually sourced (2)
+  tags:
+    - bash
+  lineinfile:
+    dest: "{{ item }}"
+    line: "source /etc/bashrc"
+    state: present
+    create: yes
+  with_items:
+    - "/home/{{ deploy_user }}/.bashrc"
+    - "/root/.bashrc"

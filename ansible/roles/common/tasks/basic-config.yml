@@ -1,0 +1,28 @@
+---
+
+- name: Set default locale to en_US.UTF-8
+  tags:
+    - basic_config
+  lineinfile:
+    create: true
+    dest: "/etc/sysconfig/i18n"
+    line: "LANG=\"en_US.UTF-8\""
+    state: present
+
+- name: Ensure github.com is a known host
+  tags:
+    - basic_config
+  lineinfile:
+    dest: /root/.ssh/known_hosts
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    regexp: "^github\\.com"
+
+- name: Make sure /var/log is writable
+  tags:
+    - basic_config
+  file:
+    path: /var/log
+    mode: "0777"
+    state: directory

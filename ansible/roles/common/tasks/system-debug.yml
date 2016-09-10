@@ -1,0 +1,43 @@
+---
+
+# - debug: var=hostvars[inventory_hostname]
+
+- name: Operating System
+  debug:
+    msg: "{{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_kernel }})"
+
+- name: SELinux
+  debug:
+    msg: "{{ ansible_selinux }}"
+
+- name: Architecture
+  debug:
+    msg: "{{ ansible_architecture }}"
+
+- name: Hostname
+  debug:
+    msg: "{{ ansible_fqdn }}"
+
+- name: IPv4 addresses
+  debug:
+    msg: "{{ ansible_all_ipv4_addresses }}"
+
+- name: Shell
+  debug:
+    msg: "{{ ansible_user_shell }}"
+
+- name: Product
+  debug:
+    msg: "{{ ansible_product_name }}"
+
+- name: Memory
+  debug:
+    msg: "{{ ansible_memtotal_mb }} MB"
+
+- name: Virtual CPUs
+  debug:
+    msg: "{{ ansible_processor_vcpus }}"
+
+- name: Host Python
+  debug:
+    msg: "{{ ansible_python_version }}"

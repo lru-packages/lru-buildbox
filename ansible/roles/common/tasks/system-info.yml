@@ -1,0 +1,23 @@
+---
+
+- name: Download server-info script
+  tags:
+    - sysinfo
+  get_url:
+    url: https://raw.githubusercontent.com/skyzyx/server-metadata/master/get-server-info.sh
+    dest: /usr/local/bin/server-info
+
+- name: Make server-info executable
+  tags:
+    - sysinfo
+  file:
+    path: /usr/local/bin/server-info
+    state: touch
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
+    mode: "0755"
+
+# - name: Save server-info results
+#   tags:
+#     - sysinfo
+#   command: "server-info > /etc/server-info.log"

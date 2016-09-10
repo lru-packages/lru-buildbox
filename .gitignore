@@ -1,0 +1,6 @@
+*.retry
+*.sublime-*
+.DS_Store
+.php_cs.cache
+.vagrant/
+gmon.out
