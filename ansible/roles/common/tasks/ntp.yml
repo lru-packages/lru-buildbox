@@ -1,0 +1,14 @@
+---
+
+- name: Enable/start NTP
+  tags:
+    - ntp
+  service:
+    name: ntp
+    state: started
+    enabled: yes
+
+- name: Configure NTP
+  tags:
+    - ntp
+  command: ntpdate pool.ntp.org

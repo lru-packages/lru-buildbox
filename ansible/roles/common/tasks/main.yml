@@ -8,5 +8,6 @@
 - include: basic-config.yml
 - include: git.yml
 - include: prompt.yml
+- include: ntp.yml
 - include: firewalld.yml
 - include: system-info.yml
