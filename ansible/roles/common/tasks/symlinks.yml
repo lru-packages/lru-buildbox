@@ -1,0 +1,18 @@
+---
+
+- name: Name for file module.
+  tags:
+    - symlinks
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items:
+    - src: ~/host/.gitconfig
+      dest: ~/.gitconfig
+    - src: ~/host/.gitignore
+      dest: ~/.gitignore
+    - src: ~/host/.ssh/id_rsa
+      dest: ~/.ssh/id_rsa
+    - src: ~/host/.ssh/id_rsa.pub
+      dest: ~/.ssh/id_rsa.pub
