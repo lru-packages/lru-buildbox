@@ -7,7 +7,7 @@ The repositories that are part of this GitHub organization all have the followin
 Install these on your local computer.
 
 * Ruby 2.3 (use [RubyInstaller] for Windows, or [RVM] for Linux or OS X)
-* [Python] 2.7.9 ≥ 3.0.0
+* [Python] 2.7.9 ≤ 3.0.0
 * [Vagrant] 1.8+ (skip 1.8.5, which is broken)
     * Plus the [vagrant-cachier] plug-in to enable caching of `yum` packages.
     * Plus the [vagrant-hostsupdater] plug-in to enable automatic management of the `hosts` file.
