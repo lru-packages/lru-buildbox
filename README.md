@@ -42,6 +42,16 @@ vagrant plugin update
    vagrant ssh
    ```
 
+## Setting-Up Tooling
+
+This VM assumes that you're hosting your package repo in Amazon S3. If not, feel free to install your preferred set of tools and configurations.
+
+While the [Unified AWS Command-Line Tools](https://aws.amazon.com/cli/) are pre-installed, they are not pre-configured. Please follow the [Getting Started Guide](https://github.com/aws/aws-cli#getting-started) for configuring your tools.
+
+### Syncing
+
+There are a couple of scripts included which facilitate syncing new packages between S3 and your VM. See `sync-up.sh` and `sync-down.sh` for more information.
+
 ## Contributing
 
 Here's the process for contributing:
