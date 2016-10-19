@@ -1,0 +1,9 @@
+---
+
+- name: Configure user permissions and groups
+  tags:
+    - users
+  command: "usermod -a -G {{ item }} vagrant"
+  with_items:
+    - root
+    - docker
