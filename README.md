@@ -48,6 +48,18 @@ This VM assumes that you're hosting your package repo in Amazon S3. If not, feel
 
 While the [Unified AWS Command-Line Tools](https://aws.amazon.com/cli/) are pre-installed, they are not pre-configured. Please follow the [Getting Started Guide](https://github.com/aws/aws-cli#getting-started) for configuring your tools.
 
+### Building New Packages
+
+If you want, for example, to build a new `git` package:
+
+1. Switch to `root`.
+1. In `/vagrant`, run `./sync-down.sh`.
+1. Clone the [lru-packages/package-git](https://github.com/lru-packages/package-git).
+1. Follow the build instructions in the `README` file (usually just `make`). This will copy the resulting RPMs to `/vagrant/repo`.
+1. Go into the `/vagrant/repo` directory and make sure the RPMs end up in either `el7/x86_64/` or `nodist/x86_64/`.
+1. Run `createrepo .` in either `el7/x86_64/` or `nodist/x86_64/` -- whichever has changed.
+1. In `/vagrant`, run `./sync-up.sh`.
+
 ### Syncing
 
 There are a couple of scripts included which facilitate syncing new packages between S3 and your VM. See `sync-up.sh` and `sync-down.sh` for more information.
