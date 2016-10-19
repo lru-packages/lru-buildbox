@@ -68,7 +68,7 @@ There are a couple of scripts included which facilitate syncing new packages bet
 
 Here's the process for contributing:
 
-1. Fork Rose to your GitHub account.
+1. Fork LRU BuildBox to your GitHub account.
 2. Clone your GitHub copy of the repository into your local workspace.
 3. Write code, fix bugs, and add tests with 100% code coverage.
 4. Commit your changes to your local workspace and push them up to your GitHub copy.
