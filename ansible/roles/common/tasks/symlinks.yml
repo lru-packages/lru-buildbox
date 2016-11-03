@@ -1,6 +1,6 @@
 ---
 
-- name: Name for file module.
+- name: Add important symlinks
   tags:
     - symlinks
   file:

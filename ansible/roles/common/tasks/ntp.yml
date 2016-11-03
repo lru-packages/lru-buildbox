@@ -1,12 +1,19 @@
 ---
 
-- name: Enable/start NTP
+- name: Install ntp
   tags:
     - ntp
-  service:
+  yum:
     name: ntp
-    state: started
-    enabled: yes
+    state: present
+
+# - name: Enable/start NTP
+#   tags:
+#     - ntp
+#   service:
+#     name: ntp
+#     state: started
+#     enabled: yes
 
 - name: Configure NTP
   tags:
