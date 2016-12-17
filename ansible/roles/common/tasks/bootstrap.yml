@@ -29,8 +29,10 @@
     - glibc
     - glibc-devel
     - glibc-headers
+    - gmp-devel
     - gnupg2
     - htop
+    - libffi-devel
     - libstdc++
     - libstdc++-devel
     - libtool
