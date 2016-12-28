@@ -4,9 +4,14 @@
   tags:
     - bootstrap
   get_url:
-    url: https://raw.githubusercontent.com/skyzyx/centos7-repos/master/all.repo
-    dest: /etc/yum.repos.d/all.repo
+    url: https://raw.githubusercontent.com/skyzyx/centos7-repos/master/centos7.repo
+    dest: /etc/yum.repos.d/centos7.repo
     force: yes
+
+- name: Remove all.repo
+  file:
+    path: /etc/yum.repos.d/all.repo
+    state: absent
 
 - name: Install core packages
   tags:
@@ -20,6 +25,8 @@
     - automake
     - binutils
     - bison
+    - centos7-repos
+    - createrepo
     - cyrus-sasl-plain
     - docker-engine
     - flex
@@ -46,6 +53,7 @@
     - redhat-rpm-config
     - rpm-build
     - rpm-sign
-    - ruby-devel
+    - ruby-devel-2.3.1
+    - server-info
     - unzip
     - wget

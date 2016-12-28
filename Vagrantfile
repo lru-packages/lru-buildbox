@@ -1,7 +1,7 @@
 Vagrant.require_version ">= 1.8.0"
 
 environment_name = "BuildBox"
-memsize = 10240
+memsize = 2048
 numvcpus = 2
 
 Vagrant.configure("2") do | config |

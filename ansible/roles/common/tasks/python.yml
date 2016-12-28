@@ -18,9 +18,9 @@
     - python
   shell: "wget https://bootstrap.pypa.io/get-pip.py -O - | {{ item }}"
   with_items:
-    - /usr/local/bin/python3.5
-    - /usr/local/bin/python2.7
     - /usr/bin/python
+    - /usr/local/bin/python2.7
+    - /usr/local/bin/python3.6
 
 - name: Install Pip packages
   tags:
