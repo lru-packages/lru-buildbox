@@ -1,6 +1,6 @@
 Vagrant.require_version ">= 1.8.0"
 
-environment_name = "BuildBox"
+environment_name = "CentOS 7 BuildBox"
 memsize = 2048
 numvcpus = 2
 
@@ -11,17 +11,17 @@ Vagrant.configure("2") do | config |
   config.vm.boot_timeout = 240
 
   # Networking
-  config.vm.hostname = "buildbox"
+  config.vm.hostname = "buildbox-centos7"
   config.vm.network :private_network, ip: "33.33.33.33"
   config.ssh.forward_agent = true
 
   # Allow 20 seconds to gracefully halt (instead of 60)
   config.vm.graceful_halt_timeout = 20
 
-  # Cache the yum packages locally if we can
+  # Cache the packages locally if we can
   if Vagrant.has_plugin?("vagrant-cachier")
-    config.cache.scope = :machine
     config.cache.auto_detect = true
+    config.cache.scope = :box
     config.cache.enable :yum
   end
 
@@ -37,6 +37,7 @@ Vagrant.configure("2") do | config |
     config.vm.synced_folder "", "/vagrant", type: "smb"
     config.vm.synced_folder (File.expand_path '~'), "/home/vagrant/host", type: "smb"
   else
+    config.vm.communicator = "ssh"
     config.vm.synced_folder "", "/vagrant", type: "nfs"
     config.vm.synced_folder (File.expand_path '~'), "/home/vagrant/host", type: "nfs"
   end

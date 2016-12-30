@@ -1,6 +1,6 @@
 ---
 
-# We now have the default Python installed, plus Python 2.7.x and 3.5.x which support TLS 1.1 and 1.2 connections.
+# We now have the default Python installed, plus Python 2.7.x and 3.6.x which support TLS 1.1 and 1.2 connections.
 - name: Install Python packages
   tags:
     - python

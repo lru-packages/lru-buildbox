@@ -10,6 +10,5 @@
 - include: prompt.yml
 - include: ntp.yml
 - include: firewalld.yml
-- include: system-info.yml
 #- include: symlinks.yml
 - include: users.yml
