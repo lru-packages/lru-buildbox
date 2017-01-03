@@ -53,16 +53,16 @@ While the [Unified AWS Command-Line Tools](https://aws.amazon.com/cli/) are pre-
 If you want, for example, to build a new `git` package:
 
 1. Switch to `root`.
-1. In `/vagrant`, run `./sync-down.sh`.
+1. In `/vagrant`, run `./pull.sh`.
 1. Clone the [lru-packages/package-git](https://github.com/lru-packages/package-git).
 1. Follow the build instructions in the `README` file (usually just `make`). This will copy the resulting RPMs to `/vagrant/repo`.
 1. Go into the `/vagrant/repo` directory and make sure the RPMs end up in either `el7/x86_64/` or `nodist/x86_64/`.
-1. Run `createrepo .` in either `el7/x86_64/` or `nodist/x86_64/` -- whichever has changed.
-1. In `/vagrant`, run `./sync-up.sh`.
+1. In `/vagrant`, run `./createrepo.sh`.
+1. In `/vagrant`, run `./push.sh`.
 
 ### Syncing
 
-There are a couple of scripts included which facilitate syncing new packages between S3 and your VM. See `sync-up.sh` and `sync-down.sh` for more information.
+There are a couple of scripts included which facilitate syncing new packages between S3 and your VM. See `pull.sh` and `push.sh` for more information.
 
 ## Contributing
 
@@ -81,7 +81,7 @@ Here's the process for contributing:
 * Copyright (c) 2016 [Ryan Parman](http://ryanparman.com).
 * Copyright (c) 2016 [Lucky Rocketship Underpants, LLC](http://luckyrocketshipunderpants.com).
 
-See also the list of [contributors](https://github.com/skyzyx/first-time-offender.com/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/lru-packages/lru-buildbox-centos7/contributors) who participated in this project.
 
   [Ansible]: http://docs.ansible.com/ansible/intro_installation.html
   [Parallels Desktop]: http://www.parallels.com/products/desktop/download/
