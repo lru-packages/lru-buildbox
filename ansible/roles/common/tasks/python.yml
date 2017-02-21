@@ -9,8 +9,9 @@
     state: present
     update_cache: yes
   with_items:
+    - python-devel
     - python27-devel
-    - python3-devel
+    - python36-devel
 
 # Let's make sure that all installed versions of Python have pip installed.
 - name: Install Pip

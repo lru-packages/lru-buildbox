@@ -73,8 +73,8 @@ Vagrant.configure("2") do | config |
 
   config.vm.provision :ansible do | ansible |
     ansible.playbook = "ansible/vm.yml"
-    ansible.inventory_path = "ansible/inventories/buildbox"
-    ansible.limit = "buildbox"
+    ansible.inventory_path = "ansible/inventories/buildbox-centos7"
+    ansible.limit = "buildbox-centos7"
     ansible.verbose = true
   end
 end

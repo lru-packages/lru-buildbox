@@ -53,7 +53,7 @@
     - redhat-rpm-config
     - rpm-build
     - rpm-sign
-    - ruby-devel-2.3.1
+    - ruby-devel
     - server-info
     - unzip
     - wget
